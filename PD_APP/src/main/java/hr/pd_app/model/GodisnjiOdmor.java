@@ -11,9 +11,9 @@ import javax.persistence.ManyToOne;
 
 /**
  *
- * @author Božena
+ * @author Bozena
  */
-@Entity
+@Entity(name = "godisnjiodmor")
 public class GodisnjiOdmor extends Entitet {
 
     private Date pocetakGodisnjiOdmor;
@@ -73,9 +73,6 @@ public class GodisnjiOdmor extends Entitet {
         this.zaposlenik = zaposlenik;
     }
 
-    @Override
-    public String toString() {
-        return getZaposlenik().getSifra() + "." + getZaposlenik().getIme() + " " + getZaposlenik().getPrezime();
-    }
+    
 }
 
