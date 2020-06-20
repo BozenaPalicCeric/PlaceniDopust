@@ -5,17 +5,19 @@
  */
 package hr.pd_app;
 
+import hr.pd_app.model.Zaposlenik;
+import hr.pd_app.util.HibernateUtil;
+
 /**
  *
  * @author Bozena
  */
 public class Start {
     public Start() {
+        HibernateUtil.getSessionFactory().openSession();
 
-        //new SplashScreen().setVisible(true);
-        
-
-       //Pomocno.pocetniInsert();
+        //Zaposlenik z= new Zaposlenik();
+        //z.setIme("Pero");
     }
 
     public static void main(String[] args) {
