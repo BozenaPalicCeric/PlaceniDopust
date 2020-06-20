@@ -16,8 +16,7 @@ import javax.persistence.OneToMany;
  *
  * @author Bozena
  */
-@Entity
-
+@Entity(name = "zaposlenik")
 public class Zaposlenik extends Entitet {
 
     private String ime;
@@ -35,14 +34,6 @@ public class Zaposlenik extends Entitet {
     
     @OneToMany (mappedBy = "zaposlenik")
     private List<PlaceniDopust> placeniDopusti= new ArrayList<>();
-
-    public List<PlaceniDopust> getPlaceniDopusti() {
-        return placeniDopusti;
-    }
-
-    public void setPlaceniDopusti(List<PlaceniDopust> placeniDopusti) {
-        this.placeniDopusti = placeniDopusti;
-    }
 
     public String getIme() {
         return ime;
@@ -116,8 +107,12 @@ public class Zaposlenik extends Entitet {
         this.godisnjiOdmori = godisnjiOdmori;
     }
 
-    @Override
-    public String toString() {
-        return getSifra() + ". " + getIme() + " " + getPrezime();
+    public List<PlaceniDopust> getPlaceniDopusti() {
+        return placeniDopusti;
     }
+
+    public void setPlaceniDopusti(List<PlaceniDopust> placeniDopusti) {
+        this.placeniDopusti = placeniDopusti;
+    }
+
 }
