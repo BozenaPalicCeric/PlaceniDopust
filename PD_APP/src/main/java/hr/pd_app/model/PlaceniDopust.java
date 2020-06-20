@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
  *
  * @author Bozena
  */
-@Entity
+@Entity(name = "placenidopust")
 public class PlaceniDopust extends Entitet{
     
     private String vrstaPlaceniDopust;
@@ -81,11 +81,7 @@ public class PlaceniDopust extends Entitet{
     public void setZaposlenik(Zaposlenik zaposlenik) {
         this.zaposlenik = zaposlenik;
     }
-    @Override
-    public String toString(){
-        return getZaposlenik().getSifra()+"." + getZaposlenik().getIme() + " " + getZaposlenik().getPrezime();
-    }
-            
+
     
 }
 
