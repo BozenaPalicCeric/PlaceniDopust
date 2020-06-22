@@ -16,8 +16,7 @@ public class Start {
     public Start() {
         HibernateUtil.getSessionFactory().openSession();
 
-        //Zaposlenik z= new Zaposlenik();
-        //z.setIme("Pero");
+        
     }
 
     public static void main(String[] args) {
