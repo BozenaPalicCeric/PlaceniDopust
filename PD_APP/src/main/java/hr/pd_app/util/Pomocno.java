@@ -5,6 +5,11 @@
  */
 package hr.pd_app.util;
 
+import hr.pd_app.controller.ObradaZaposlenik;
+import hr.pd_app.model.Zaposlenik;
+import java.util.Calendar;
+import org.mindrot.jbcrypt.BCrypt;
+
 /**
  *
  * @author Bozena
@@ -43,5 +48,27 @@ public class Pomocno {
 
         return kontrolni == Integer.parseInt(oib.substring(10));
     }
+    public static void pocetniInsert() {
 
+        Zaposlenik zaposlenik = new Zaposlenik();
+        zaposlenik.setEmail("bozena.palic@gmail.com");
+        zaposlenik.setIme("Božena");
+        zaposlenik.setPrezime("Palić Cerić");
+        zaposlenik.setOib("18298417901");
+        zaposlenik.setLozinka(BCrypt.hashpw("b", BCrypt.gensalt()));
+        zaposlenik.setBrojDanaGoPremaUgovoruORadu(20);
+        Calendar cb = Calendar.getInstance();
+        cb.set(Calendar.YEAR, 2019);
+        cb.set(Calendar.MONTH, 0);
+        cb.set(Calendar.DAY_OF_MONTH, 1);
+        zaposlenik.setDatumZaposlenja(cb.getTime());
+        zaposlenik.setNadredeni(zaposlenik);
+
+        ObradaZaposlenik obradaZaposlenik = new ObradaZaposlenik(zaposlenik);
+        try {
+            zaposlenik = obradaZaposlenik.create();
+        } catch (PDException ex) {
+            System.out.println(ex.getPoruka());
+        }
+    }
 }
